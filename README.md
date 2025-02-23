@@ -1,91 +1,56 @@
-# AI/Machine Learning Intern Challenge: Simple Content-Based Recommendation
+# Dataset
 
-**Deadline**: Sunday, Feb 23th 11:59 pm PST
+The movies dataset is a comprehensive collection of information about 4,803 movies. It provides a wide range of details about each movie, including budget, genres, production companies, release date, revenue, runtime, language, popularity, and more.
 
----
-
-## Overview
-
-Build a **content-based recommendation system** that, given a **short text description** of a user’s preferences, suggests **similar items** (e.g., movies) from a small dataset. This challenge should take about **3 hours**, so keep your solution **simple** yet **functional**.
-
-### Example Use Case
-
-- The user inputs:  
-  *"I love thrilling action movies set in space, with a comedic twist."*  
-- Your system processes this description (query) and compares it to a dataset of items (e.g., movies with their plot summaries or keywords).  
-- You then return the **top 3–5 “closest” matches** to the user.
+You can download the dataset from [Kaggle](https://www.kaggle.com/datasets/utkarshx27/movies-dataset?resource=download).
 
 ---
 
-## Requirements
+# Setup
 
-1. **Dataset**  
-   - Use a **small** public dataset of items (e.g., a list of movies with plot summaries, or other textual descriptions).  
-   - Make sure the dataset is easy to handle (maybe 100–500 rows) so the solution remains quick to implement and run.  
-   - Include the dataset in your forked repository *or* provide instructions/link on how to download it.  
+To set up the environment, install the required dependencies:
 
-2. **Approach**  
-   - **Content-Based**: At a minimum, use text similarity to recommend items.  
-     - For instance, you can transform both the user’s text input and each item’s description into TF-IDF vectors and compute **cosine similarity**.  
-   - Return the **top N** similar items (e.g., top 5).
-
-3. **Code Organization**  
-   - You may use a **Jupyter Notebook** or **Python scripts**.  
-   - Keep it **readable** and **modular** (e.g., one section for loading data, one for building vectors, one for computing similarity, etc.).  
-   - Briefly comment or docstring your key functions/sections.
-
-4. **Output**  
-   - When given an input description (e.g., `"I like action movies set in space"`), your system should print or return a list of recommended items (e.g., 3–5 titles).  
-   - Include the similarity score or rank if you’d like.
-
-5. **Summary & Instructions**  
-   - A short `README.md` that includes:
-     - **Dataset**: Where it’s from, any steps to load it.  
-     - **Setup**: Python version, virtual environment instructions, and how to install dependencies (`pip install -r requirements.txt`).  
-     - **Running**: How to run your code (e.g., `python recommend.py "Some user description"` or open your notebook in Jupyter).  
-     - **Results**: A brief example of your system’s output for a sample query.
+```bash
+pip install pandas numpy scikit-learn sentence_transformers torch
+```
 
 ---
 
-## Deliverables
+# Running
 
-1. **Fork the Public Repository**  
-   - **Fork** this repo into your own GitHub account.
-
-2. **Implement Your Solution**  
-   - Load and preprocess your dataset (e.g., read CSV, handle text columns).  
-   - Convert text data to vectors (e.g., TF-IDF).  
-   - Implement a function to compute similarity between the user’s query and each item’s description.  
-   - Return the top matches.
-   - Salary expectation per month (Mandatory)
-
-3. **Short Video Demo**  
-   - In a `.md` file (e.g., `demo.md`) within your fork, paste a link to a **brief screen recording** (video link).  
-   - Demonstrate:
-     - How you run the recommendation code.  
-     - A sample query and the results.
-
-4. **Deadline**  
-   - Submit your fork by **Sunday, Feb 23th 11:59 pm PST**.
-
-> **Note**: This should be doable within ~3 hours. Keep it **straightforward**—you do **not** need advanced neural networks or complex pipelines. A simple TF-IDF + cosine similarity approach is sufficient.
+Run all the cells in the Jupyter notebook file called recommend.ipynb to generate movie recommendations based on the dataset.
 
 ---
 
-## Evaluation Criteria
+# Results
 
-1. **Functionality**  
-   - Does your code run without errors?  
-   - When given an input query, does it successfully output relevant items?
+## Sample Query:
 
-2. **Code Quality**  
-   - Clear, commented code (where it counts).  
-   - Logical steps (load data → transform → recommend).
+"I love thrilling action movies set in space, with a comedic twist."
 
-3. **Clarity**  
-   - Is your `README.md` straightforward about setup, how to run, and what to expect?
+## SBERT Top-5 Matches:
 
-4. **ML/Recommendation Understanding**  
-   - Basic implementation of a content-based recommendation approach (vectorization, similarity measure).
+Title - Galaxy Quest
+Genres - Comedy, Family, Science Fiction
+Keywords - space battle, spaceship, spoof, fictional tv show
+Overview - The stars of a 1970s sci-fi show - now scraping a living through re-runs and sci-fi conventions - are beamed aboard an alien spacecraft. Believing the cast's heroic on-screen dramas are historical documents of real-life adventures, the band of aliens turn to the ailing celebrities for help in their quest to overcome the oppressive regime in their solar system.
 
-**We look forward to seeing your solution!** Good luck!
+Title - Aliens in the Attic
+Genres - Adventure, Comedy, Family, Fantasy, Science Fiction
+Keywords - alien, comedy, duringcreditsstinger, beforecreditsstinger, live action and animation
+Overview - It's summer vacation, but the Pearson family kids are stuck at a boring lake house with their nerdy parents. That is until feisty, little, green aliens crash-land on the roof, with plans to conquer the house AND Earth! Using only their wits, courage and video game-playing skills, the youngsters must band together to defeat the aliens and save the world - but the toughest part might be keeping the whole thing a secret from their parents! Featuring an all-star cast including Ashley Tisdale, Andy Richter, Kevin Nealon, Tim Meadows, and Doris Roberts, Aliens In The Attic is the most fun you can have on this planet!
+
+Title - Wing Commander
+Genres - Action, Science Fiction
+Keywords - fight, pilot, outer space, based on video game, space opera
+Overview - The Hollywood version of the popular video game series Wing Commander. Unlike other video games to feature film transitions, series creator Chris Roberts was heavily involved in the film's creation. This is the story of Christopher Blair and Todd "Maniac" Marshall as they arrive at the Tiger Claw and are soon forced to stop a Kilrathi fleet heading towards Earth.
+
+Title - The Ice Pirates
+Genres - Action, Science Fiction, Comedy
+Keywords - rebel, space, war, water, sci-fi, comedy
+Overview - The time is the distant future, where by far the most precious commodity in the galaxy is water. The last surviving water planet was somehow removed to the unreachable centre of the galaxy at the end of the galactic trade wars. The galaxy is ruled by an evil emperor (John Carradine) presiding over a trade oligarchy that controls all mining and sale of ice from asteroids and comets.
+
+Title - Cargo
+Genres - Thriller, Mystery, Science Fiction
+Keywords - space colony, space travel, simulated reality, spaceship, suspense
+Overview - The story of CARGO takes place on the rusty space-freighter KASSANDRA on its way to Station 42. The young medic LAURA is the only one awake on board while the rest of the crew lies frozen in hibernation sleep. In 4 months, Laura's shift will be over.
